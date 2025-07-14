@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak - PT. Ariesta Pratama</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <i class="fas fa-truck-monster text-3xl text-blue-800 mr-2"></i>
+            <span class="text-2xl font-bold text-gradient"
+              >PT. Ariesta Pratama</span
+            >
+          </a>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="index.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Beranda</a
+          >
+          <a
+            href="layanan.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Layanan</a
+          >
+          <a
+            href="alat-berat.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Alat Berat</a
+          >
+          <a
+            href="pemesanan.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Pemesanan</a
+          >
+          <a
+            href="tentang-kami.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Tentang Kami</a
+          >
+          <a href="kontak.html" class="nav-link text-blue-600 font-medium"
+            >Kontak</a
+          >
+          <a
+            href="riwayat.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Riwayat</a
+          >
+        </div>
+
+        <button
+          class="md:hidden text-gray-700 focus:outline-none"
+          id="mobile-menu-button"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+        <div class="px-4 py-3 space-y-4">
+          <a
+            href="index.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Beranda</a
+          >
+          <a
+            href="layanan.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Layanan</a
+          >
+          <a
+            href="alat-berat.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Alat Berat</a
+          >
+          <a
+            href="pemesanan.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Pemesanan</a
+          >
+          <a
+            href="tentang-kami.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Tentang Kami</a
+          >
+          <a href="kontak.html" class="block py-2 text-blue-600 font-medium"
+            >Kontak</a
+          >
+          <a
+            href="riwayat.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Riwayat</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="gradient-bg text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Hubungi Kami</h1>
+        <p class="text-xl max-w-2xl mx-auto opacity-90">
+          Tim kami siap membantu Anda dengan segala kebutuhan alat berat.
+        </p>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-0 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="rounded-lg overflow-hidden shadow-md">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507824!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e839560a52ab!2sJl.%20Industri%20Raya%20No.123%2C%20RT.1%2FRW.9%2C%20Jelambar%2C%20Kec.%20Kembangan%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2011510!5e0!3m2!1sen!2sid!4v1620749140851!5m2!1sen!2sid"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Pertanyaan Umum</h2>
+          <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Berikut beberapa pertanyaan yang sering diajukan oleh pelanggan
+            kami.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <div class="mb-6 border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              class="flex justify-between items-center w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 transition duration-300 text-left"
+            >
+              <span class="font-medium text-gray-800"
+                >Berapa lama minimal penyewaan alat berat?</span
+              >
+              <i
+                class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="px-6 py-4 bg-white hidden">
+              <p class="text-gray-600">
+                Minimal penyewaan alat berat adalah 8 jam kerja. Untuk proyek
+                jangka panjang, kami menawarkan harga khusus dengan minimal sewa
+                1 bulan.
+              </p>
+            </div>
+          </div>
+
+          <div class="mb-6 border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              class="flex justify-between items-center w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 transition duration-300 text-left"
+            >
+              <span class="font-medium text-gray-800"
+                >Apakah harga sewa sudah termasuk operator?</span
+              >
+              <i
+                class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="px-6 py-4 bg-white hidden">
+              <p class="text-gray-600">
+                Harga sewa alat berat tidak termasuk operator. Kami menyediakan
+                operator profesional dengan biaya tambahan. Operator kami sudah
+                berpengalaman dan bersertifikat.
+              </p>
+            </div>
+          </div>
+
+          <div class="mb-6 border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              class="flex justify-between items-center w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 transition duration-300 text-left"
+            >
+              <span class="font-medium text-gray-800"
+                >Bagaimana jika alat berat mengalami kerusakan selama
+                disewa?</span
+              >
+              <i
+                class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="px-6 py-4 bg-white hidden">
+              <p class="text-gray-600">
+                Kami memiliki tim teknisi yang siap memberikan dukungan 24 jam
+                untuk perbaikan. Jika kerusakan disebabkan oleh kesalahan
+                penggunaan, biaya perbaikan akan ditanggung penyewa. Namun jika
+                kerusakan terjadi karena faktor normal, kami yang akan
+                menanggung biaya perbaikannya.
+              </p>
+            </div>
+          </div>
+
+          <div class="mb-6 border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              class="flex justify-between items-center w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 transition duration-300 text-left"
+            >
+              <span class="font-medium text-gray-800"
+                >Apakah ada biaya transportasi untuk pengiriman alat
+                berat?</span
+              >
+              <i
+                class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="px-6 py-4 bg-white hidden">
+              <p class="text-gray-600">
+                Ya, biaya transportasi alat berat ke lokasi proyek ditanggung
+                oleh penyewa. Kami akan memberikan estimasi biaya transportasi
+                berdasarkan jarak dan jenis alat berat yang disewa.
+              </p>
+            </div>
+          </div>
+
+          <div class="border border-gray-200 rounded-lg overflow-hidden">
+            <button
+              class="flex justify-between items-center w-full px-6 py-4 bg-gray-50 hover:bg-gray-100 transition duration-300 text-left"
+            >
+              <span class="font-medium text-gray-800"
+                >Bagaimana cara pembayaran untuk penyewaan alat berat?</span
+              >
+              <i
+                class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+              ></i>
+            </button>
+            <div class="px-6 py-4 bg-white hidden">
+              <p class="text-gray-600">
+                Pembayaran dapat dilakukan melalui transfer bank atau tunai.
+                Untuk penyewaan jangka pendek, pembayaran dilakukan lunas
+                sebelum pengiriman alat. Untuk penyewaan jangka panjang, kami
+                menerima pembayaran termin dengan DP minimal 30% saat
+                penandatanganan kontrak.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">Masih Ada Pertanyaan?</h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          Tim customer service kami siap membantu Anda 24/7.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+        >
+          <a
+            href="tel:+622112345678"
+            class="bg-white text-blue-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300 text-center hover-scale"
+          >
+            <i class="fas fa-phone-alt mr-2"></i> (021) 1234-5678
+          </a>
+          <a
+            href="https://wa.me/6281234567890"
+            class="border-2 border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white hover:text-blue-800 transition duration-300 text-center hover-scale"
+          >
+            <i class="fab fa-whatsapp mr-2"></i> 0812-3456-7890
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="mb-8 md:mb-0">
+            <a href="index.html" class="flex items-center mb-4">
+              <i class="fas fa-truck-monster text-3xl text-blue-400 mr-2"></i>
+              <span class="text-2xl font-bold text-white"
+                >PT. Ariesta Pratama</span
+              >
+            </a>
+            <p class="text-gray-400 mb-4">
+              Solusi terbaik untuk kebutuhan alat berat proyek konstruksi Anda.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-linkedin-in text-xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Tautan Cepat</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Beranda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Layanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="alat-berat.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Alat Berat</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pemesanan.html"
+                  class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+                  >Pemesanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="tentang-kami.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a
+                  href="kontak.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Kontak</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Layanan</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Penyewaan Alat Berat</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Operator Profesional</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Perawatan & Perbaikan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Konsultasi Proyek</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Transportasi Alat</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
+              Berlangganan newsletter kami untuk mendapatkan informasi terbaru
+              dan penawaran spesial.
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Email Anda"
+                class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full"
+              />
+              <button
+                type="submit"
+                class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition duration-300"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-4 md:mb-0">
+            © 2025 PT. Ariesta Pratama. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >Kebijakan Privasi</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >Syarat & Ketentuan</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >FAQ</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a
+      href="#"
+      class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+    <!-- Tambahkan ini di <head> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

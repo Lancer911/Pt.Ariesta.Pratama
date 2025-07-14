@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riwayat Pemesanan | PT. Ariesta Pratama</title>
+
+    <!-- Tambahkan Tailwind CDN di sini -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <!-- Optional: Konfigurasi Tailwind kustom -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0d47a1",
+              secondary: "#1976d2",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <i class="fas fa-truck-monster text-3xl text-blue-800 mr-2"></i>
+            <span class="text-2xl font-bold text-gradient"
+              >PT. Ariesta Pratama</span
+            >
+          </a>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="index.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Beranda</a
+          >
+          <a
+            href="layanan.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Layanan</a
+          >
+          <a
+            href="alat-berat.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Alat Berat</a
+          >
+          <a
+            href="pemesanan.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Pemesanan</a
+          >
+          <a
+            href="tentang-kami.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Tentang Kami</a
+          >
+          <a
+            href="kontak.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Kontak</a
+          >
+          <a href="riwayat.html" class="nav-link text-blue-600 font-medium"
+            >Riwayat</a
+          >
+        </div>
+
+        <button
+          class="md:hidden text-gray-700 focus:outline-none"
+          id="mobile-menu-button"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+        <div class="px-4 py-3 space-y-4">
+          <a
+            href="index.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Beranda</a
+          >
+          <a
+            href="layanan.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Layanan</a
+          >
+          <a
+            href="alat-berat.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Alat Berat</a
+          >
+          <a
+            href="pemesanan.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Pemesanan</a
+          >
+          <a
+            href="tentang-kami.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Tentang Kami</a
+          >
+          <a
+            href="kontak.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Kontak</a
+          >
+          <a href="riwayat.html" class="block py-2 text-blue-600 font-medium"
+            >Riwayat</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section
+      class="bg-gradient-to-r from-blue-800 to-blue-500 text-white py-20"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+          Riwayat Pemesanan
+        </h1>
+        <p class="text-xl max-w-2xl mx-auto text-white opacity-90">
+          Lihat riwayat pemesanan alat berat Anda
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 max-w-7xl">
+      <!-- Riwayat Pemesanan Section -->
+      <section id="riwayat-section" class="py-8">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">
+            Riwayat Pemesanan
+          </h2>
+
+          <div id="riwayat-container">
+            <div class="text-center py-8">
+              <i class="fas fa-history text-4xl text-gray-300 mb-4"></i>
+              <p class="text-gray-500">Belum ada riwayat pemesanan</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="mb-8 md:mb-0">
+            <a href="index.html" class="flex items-center mb-4">
+              <i class="fas fa-truck-monster text-3xl text-blue-400 mr-2"></i>
+              <span class="text-2xl font-bold text-white"
+                >PT. Ariesta Pratama</span
+              >
+            </a>
+            <p class="text-gray-400 mb-4">
+              Solusi terbaik untuk kebutuhan alat berat proyek konstruksi Anda.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-linkedin-in text-xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Tautan Cepat</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Beranda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Layanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="alat-berat.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Alat Berat</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pemesanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Pemesanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="tentang-kami.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a
+                  href="kontak.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Kontak</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Layanan</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Penyewaan Alat Berat</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Operator Profesional</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Perawatan & Perbaikan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Konsultasi Proyek</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Transportasi Alat</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
+              Berlangganan newsletter kami untuk mendapatkan informasi terbaru
+              dan penawaran spesial.
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Email Anda"
+                class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full"
+              />
+              <button
+                type="submit"
+                class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition duration-300"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-4 md:mb-0">
+            © 2025 PT. Ariesta Pratama. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >Kebijakan Privasi</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >Syarat & Ketentuan</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >FAQ</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a
+      href="#"
+      class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Format Rupiah
+        function formatRupiah(angka) {
+          return angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        // Format date
+        function formatDate(dateString) {
+          const options = { year: "numeric", month: "long", day: "numeric" };
+          return new Date(dateString).toLocaleDateString("id-ID", options);
+        }
+
+        // Format date and time
+        function formatDateTime(dateTimeString) {
+          const options = {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          };
+          return new Date(dateTimeString).toLocaleDateString("id-ID", options);
+        }
+
+        // Load order history
+        function loadRiwayatPemesanan() {
+          const container = document.getElementById("riwayat-container");
+          const orders =
+            JSON.parse(localStorage.getItem("equipmentOrders")) || [];
+
+          if (orders.length === 0) {
+            container.innerHTML = `
+              <div class="text-center py-8">
+                <i class="fas fa-history text-4xl text-gray-300 mb-4"></i>
+                <p class="text-gray-500">Belum ada riwayat pemesanan</p>
+              </div>
+            `;
+            return;
+          }
+
+          container.innerHTML = "";
+
+          orders.forEach((order, index) => {
+            const orderElement = document.createElement("div");
+            orderElement.className =
+              "border border-gray-200 rounded-lg p-6 mb-6 relative";
+            orderElement.innerHTML = `
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800">Pemesanan #${
+                    orders.length - index
+                  }</h3>
+                  <p class="text-gray-600">${formatDateTime(
+                    order.orderDate
+                  )}</p>
+                </div>
+                <div class="flex items-center">
+                  <span class="px-3 py-1 rounded-full text-sm font-medium ${
+                    order.status === "Menunggu Konfirmasi"
+                      ? "bg-yellow-100 text-yellow-800"
+                      : order.status === "Dikonfirmasi"
+                      ? "bg-green-100 text-green-800"
+                      : "bg-red-100 text-red-800"
+                  }">
+                    ${order.status}
+                  </span>
+                  <button class="ml-3 text-red-500 hover:text-red-700 delete-history" data-id="${index}">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-bold text-gray-800 mb-2">Data Pemesan</h4>
+                  <p><strong>Nama:</strong> ${order.customer.nama}</p>
+                  <p><strong>Email:</strong> ${order.customer.email}</p>
+                  <p><strong>Telepon:</strong> ${order.customer.telepon}</p>
+                  <p><strong>Perusahaan:</strong> ${
+                    order.customer.perusahaan
+                  }</p>
+                  <p><strong>Alamat Proyek:</strong> ${
+                    order.customer.alamat
+                  }</p>
+                  <p><strong>Metode Pembayaran:</strong> ${
+                    order.customer.pembayaran
+                  }</p>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-bold text-gray-800 mb-2">Detail Pemesanan</h4>
+                  ${order.equipment
+                    .map(
+                      (item) => `
+                    <div class="mb-3 pb-3 border-b border-gray-200 last:border-0">
+                      <p><strong>${item.alat}</strong> (${item.jumlah} unit)</p>
+                      <p>Mulai: ${formatDate(item.tanggalMulai)}</p>
+                      <p>Durasi: ${item.durasi} jam</p>
+                      <p>Total: Rp${formatRupiah(item.total)}</p>
+                    </div>
+                  `
+                    )
+                    .join("")}
+                </div>
+              </div>
+              
+              <div class="bg-blue-50 p-4 rounded-lg">
+                <div class="flex justify-between items-center">
+                  <h4 class="font-bold text-gray-800">Total Biaya</h4>
+                  <span class="text-xl font-bold text-blue-600">Rp${formatRupiah(
+                    order.total
+                  )}</span>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">*Biaya transportasi ditanggung penyewa</p>
+              </div>
+            `;
+            container.appendChild(orderElement);
+          });
+
+          // Tambahkan event listener untuk tombol hapus
+          document.querySelectorAll(".delete-history").forEach((button) => {
+            button.addEventListener("click", function () {
+              const index = parseInt(this.getAttribute("data-id"));
+              if (
+                confirm(
+                  "Apakah Anda yakin ingin menghapus riwayat pemesanan ini?"
+                )
+              ) {
+                deleteOrderFromHistory(index);
+                loadRiwayatPemesanan(); // Memuat ulang riwayat setelah penghapusan
+              }
+            });
+          });
+        }
+
+        // Tambahkan fungsi baru untuk menghapus riwayat
+        function deleteOrderFromHistory(index) {
+          let orders =
+            JSON.parse(localStorage.getItem("equipmentOrders")) || [];
+          orders.splice(index, 1); // Hapus item pada index tertentu
+          localStorage.setItem("equipmentOrders", JSON.stringify(orders));
+        }
+
+        // Load riwayat saat halaman dibuka
+        loadRiwayatPemesanan();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pemesanan | PT. Ariesta Pratama</title>
+
+    <!-- Tambahkan Tailwind CDN di sini -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <!-- Optional: Konfigurasi Tailwind kustom -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0d47a1",
+              secondary: "#1976d2",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .file-input-label {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #e2e8f0;
+        color: #4a5568;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .file-input-label:hover {
+        background-color: #cbd5e0;
+      }
+      .file-input {
+        display: none;
+      }
+      .file-name {
+        margin-left: 10px;
+        color: #4a5568;
+      }
+    </style>
+  </head>
+
+  <body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <i class="fas fa-truck-monster text-3xl text-blue-800 mr-2"></i>
+            <span class="text-2xl font-bold text-gradient"
+              >PT. Ariesta Pratama</span
+            >
+          </a>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="index.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Beranda</a
+          >
+          <a
+            href="layanan.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Layanan</a
+          >
+          <a
+            href="alat-berat.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Alat Berat</a
+          >
+          <a href="pemesanan.html" class="nav-link text-blue-600 font-medium"
+            >Pemesanan</a
+          >
+          <a
+            href="tentang-kami.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Tentang Kami</a
+          >
+          <a
+            href="kontak.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Kontak</a
+          >
+          <a
+            href="riwayat.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Riwayat</a
+          >
+        </div>
+
+        <button
+          class="md:hidden text-gray-700 focus:outline-none"
+          id="mobile-menu-button"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="md:hidden hidden bg-white shadow-lg" id="mobile-menu">
+        <div class="px-4 py-3 space-y-4">
+          <a
+            href="index.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Beranda</a
+          >
+          <a
+            href="layanan.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Layanan</a
+          >
+          <a
+            href="alat-berat.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Alat Berat</a
+          >
+          <a href="pemesanan.html" class="block py-2 text-blue-600 font-medium"
+            >Pemesanan</a
+          >
+          <a
+            href="tentang-kami.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Tentang Kami</a
+          >
+          <a
+            href="kontak.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Kontak</a
+          >
+          <a
+            href="riwayat.html"
+            class="block py-2 text-gray-700 hover:text-blue-600 font-medium"
+            >Riwayat</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section
+      class="bg-gradient-to-r from-blue-800 to-blue-500 text-white py-20"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+          Formulir Pemesanan
+        </h1>
+        <p class="text-xl max-w-2xl mx-auto text-white opacity-90">
+          Isi formulir berikut untuk memesan alat berat
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 max-w-7xl">
+      <!-- Form Section -->
+      <section id="form-section" class="py-8">
+        <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+          <form id="order-form">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Data Pemesan</h2>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label for="nama" class="block text-gray-700 font-medium mb-2"
+                  >Nama Lengkap*</label
+                >
+                <input
+                  type="text"
+                  id="nama"
+                  name="nama"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-gray-700 font-medium mb-2"
+                  >Email*</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  required
+                />
+                <p id="email-error" class="text-red-500 text-sm mt-1 hidden">
+                  Email harus mengandung @
+                </p>
+              </div>
+
+              <div>
+                <label
+                  for="telepon"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Nomor Telepon*</label
+                >
+                <input
+                  type="tel"
+                  id="telepon"
+                  name="telepon"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  required
+                />
+                <p id="phone-error" class="text-red-500 text-sm mt-1 hidden">
+                  Nomor telepon harus angka
+                </p>
+              </div>
+
+              <div>
+                <label
+                  for="perusahaan"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Perusahaan</label
+                >
+                <input
+                  type="text"
+                  id="perusahaan"
+                  name="perusahaan"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label for="alamat" class="block text-gray-700 font-medium mb-2"
+                >Alamat Proyek*</label
+              >
+              <textarea
+                id="alamat"
+                name="alamat"
+                rows="3"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Dokumen Persyaratan -->
+            <div class="mb-8 bg-blue-50 p-6 rounded-lg">
+              <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                Persyaratan Dokumen
+              </h2>
+
+              <div class="mb-4">
+                <p class="text-gray-700 mb-3">
+                  Silakan upload dokumen berikut:
+                </p>
+                <ul class="list-disc pl-5 text-gray-700 mb-4">
+                  <li>Fotokopi KTP/SIM (wajib)</li>
+                  <li>Surat kuasa (jika dikuasakan)</li>
+                </ul>
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2"
+                  >Upload KTP/SIM*</label
+                >
+                <label for="ktp-upload" class="file-input-label">
+                  <i class="fas fa-upload mr-2"></i>Pilih File
+                  <input
+                    type="file"
+                    id="ktp-upload"
+                    class="file-input"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                    required
+                  />
+                </label>
+                <span id="ktp-file-name" class="file-name"
+                  >Belum ada file dipilih</span
+                >
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2"
+                  >Upload Surat Kuasa (opsional)</label
+                >
+                <label for="surat-upload" class="file-input-label">
+                  <i class="fas fa-upload mr-2"></i>Pilih File
+                  <input
+                    type="file"
+                    id="surat-upload"
+                    class="file-input"
+                    accept=".pdf,.jpg,.jpeg,.png"
+                  />
+                </label>
+                <span id="surat-file-name" class="file-name"
+                  >Belum ada file dipilih</span
+                >
+              </div>
+            </div>
+
+            <!-- Metode Pembayaran -->
+            <div class="mb-8 bg-blue-50 p-6 rounded-lg">
+              <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                Metode Pembayaran
+              </h2>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-gray-700 font-medium mb-2"
+                    >Pilih Metode Pembayaran*</label
+                  >
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input
+                        type="radio"
+                        name="pembayaran"
+                        value="Transfer Bank"
+                        class="mr-2"
+                        checked
+                        required
+                      />
+                      <span>Transfer Bank</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input
+                        type="radio"
+                        name="pembayaran"
+                        value="Tunai"
+                        class="mr-2"
+                      />
+                      <span>Tunai (saat penyerahan alat)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div id="bank-details" class="bg-white p-4 rounded-lg">
+                  <h4 class="font-bold text-gray-800 mb-2">
+                    Rekening Pembayaran
+                  </h4>
+                  <p class="text-gray-700">Bank BCA</p>
+                  <p class="text-gray-700">No. Rekening: 1234567890</p>
+                  <p class="text-gray-700">Atas Nama: PT. Ariesta Pratama</p>
+                  <p class="text-sm text-gray-500 mt-2">
+                    Harap transfer sesuai total pemesanan dan konfirmasi via
+                    WhatsApp setelah transfer
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ketentuan Sewa -->
+            <div
+              class="mb-8 bg-yellow-50 p-6 rounded-lg border border-yellow-200"
+            >
+              <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                Ketentuan Sewa
+              </h2>
+
+              <div class="space-y-3 text-gray-700">
+                <p class="flex items-start">
+                  <i class="fas fa-info-circle text-yellow-600 mr-2 mt-1"></i>
+                  <span
+                    >Minimal sewa 8 jam/hari. Penyewaan kurang dari 8 jam tetap
+                    dihitung 8 jam.</span
+                  >
+                </p>
+                <p class="flex items-start">
+                  <i class="fas fa-info-circle text-yellow-600 mr-2 mt-1"></i>
+                  <span
+                    >Biaya transportasi alat berat ditanggung oleh
+                    penyewa.</span
+                  >
+                </p>
+                <p class="flex items-start">
+                  <i class="fas fa-info-circle text-yellow-600 mr-2 mt-1"></i>
+                  <span
+                    >Pembayaran dilakukan 50% saat pemesanan dan 50% sebelum
+                    penyerahan alat.</span
+                  >
+                </p>
+                <p class="flex items-start">
+                  <i class="fas fa-info-circle text-yellow-600 mr-2 mt-1"></i>
+                  <span
+                    >Pembatalan pemesanan maksimal 3 hari sebelum tanggal
+                    sewa.</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">
+              Detail Pemesanan
+            </h2>
+
+            <div id="equipment-items">
+              <!-- Item alat berat akan ditambahkan di sini -->
+              <p class="text-gray-500">Belum ada alat berat yang ditambahkan</p>
+            </div>
+
+            <div class="bg-blue-50 p-6 rounded-lg mb-6">
+              <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                Tambah Alat Berat
+              </h3>
+
+              <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label for="alat" class="block text-gray-700 font-medium mb-2"
+                    >Jenis Alat Berat*</label
+                  >
+                  <select
+                    id="alat"
+                    name="alat"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  >
+                    <option value="">Pilih Alat Berat</option>
+                    <option value="Excavator" data-harga="500000">
+                      Excavator - Rp500.000/jam
+                    </option>
+                    <option value="Bulldozer" data-harga="450000">
+                      Bulldozer - Rp450.000/jam
+                    </option>
+                    <option value="Crane" data-harga="750000">
+                      Crane - Rp750.000/jam
+                    </option>
+                    <option value="Dump Truck" data-harga="350000">
+                      Dump Truck - Rp350.000/jam
+                    </option>
+                    <option value="Wheel Loader" data-harga="400000">
+                      Wheel Loader - Rp400.000/jam
+                    </option>
+                    <option value="Motor Grader" data-harga="550000">
+                      Motor Grader - Rp550.000/jam
+                    </option>
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    for="jumlah"
+                    class="block text-gray-700 font-medium mb-2"
+                    >Jumlah Unit*</label
+                  >
+                  <input
+                    type="number"
+                    id="jumlah"
+                    name="jumlah"
+                    min="1"
+                    value="1"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label
+                    for="tanggal-mulai"
+                    class="block text-gray-700 font-medium mb-2"
+                    >Tanggal Mulai*</label
+                  >
+                  <input
+                    type="date"
+                    id="tanggal-mulai"
+                    name="tanggal-mulai"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="durasi"
+                    class="block text-gray-700 font-medium mb-2"
+                    >Durasi (jam)* (Min. 8 jam)</label
+                  >
+                  <input
+                    type="number"
+                    id="durasi"
+                    name="durasi"
+                    min="8"
+                    value="8"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label
+                  for="catatan"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Catatan Tambahan</label
+                >
+                <textarea
+                  id="catatan"
+                  name="catatan"
+                  rows="2"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                ></textarea>
+              </div>
+
+              <button
+                type="button"
+                id="tambah-alat"
+                class="bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
+              >
+                <i class="fas fa-plus mr-2"></i>Tambah Alat
+              </button>
+            </div>
+
+            <!-- Total Biaya -->
+            <div
+              class="bg-green-50 p-6 rounded-lg mb-6 border border-green-200"
+            >
+              <h3 class="text-xl font-bold text-gray-800 mb-4">Total Biaya</h3>
+              <div id="total-container" class="hidden">
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700">Subtotal:</span>
+                  <span id="subtotal" class="font-medium">Rp0</span>
+                </div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-gray-700">Biaya Transportasi*:</span>
+                  <span class="font-medium">Ditanggung Penyewa</span>
+                </div>
+                <div class="flex justify-between text-lg font-bold">
+                  <span class="text-gray-800">Total:</span>
+                  <span id="total-biaya" class="text-green-600">Rp0</span>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">
+                  *Biaya transportasi akan dihitung berdasarkan lokasi proyek
+                </p>
+              </div>
+              <div id="empty-total" class="text-gray-500">
+                Tambahkan alat berat untuk melihat total biaya
+              </div>
+            </div>
+
+            <div class="flex justify-between">
+              <button
+                type="button"
+                id="lihat-ringkasan"
+                class="bg-green-600 text-white font-medium py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300 hidden"
+              >
+                <i class="fas fa-eye mr-2"></i>Lihat Ringkasan
+              </button>
+
+              <button
+                type="submit"
+                class="bg-blue-600 text-white font-medium py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-300"
+              >
+                <i class="fas fa-paper-plane mr-2"></i>Kirim Pemesanan
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- Summary Modal -->
+    <div
+      id="summary-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50"
+    >
+      <div
+        class="bg-white rounded-lg p-6 max-w-2xl w-full max-h-screen overflow-y-auto"
+      >
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-2xl font-bold text-gray-800">Ringkasan Pemesanan</h3>
+          <button id="close-summary" class="text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-lg font-semibold text-gray-800 mb-2">Data Pemesan</h4>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <p><strong>Nama:</strong> <span id="summary-nama"></span></p>
+            <p><strong>Email:</strong> <span id="summary-email"></span></p>
+            <p><strong>Telepon:</strong> <span id="summary-telepon"></span></p>
+            <p>
+              <strong>Perusahaan:</strong> <span id="summary-perusahaan"></span>
+            </p>
+            <p>
+              <strong>Alamat Proyek:</strong> <span id="summary-alamat"></span>
+            </p>
+            <p>
+              <strong>Metode Pembayaran:</strong>
+              <span id="summary-pembayaran"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-lg font-semibold text-gray-800 mb-2">Alat Berat</h4>
+          <div id="summary-equipment" class="space-y-4">
+            <!-- Equipment items will be added here -->
+          </div>
+        </div>
+
+        <div class="bg-green-50 p-4 rounded-lg mb-6 border border-green-200">
+          <h4 class="text-lg font-semibold text-gray-800 mb-2">Total Biaya</h4>
+          <div class="flex justify-between mb-2">
+            <span class="text-gray-700">Subtotal:</span>
+            <span id="summary-subtotal" class="font-medium">Rp0</span>
+          </div>
+          <div class="flex justify-between mb-2">
+            <span class="text-gray-700">Biaya Transportasi:</span>
+            <span class="font-medium">Ditanggung Penyewa</span>
+          </div>
+          <div class="flex justify-between text-lg font-bold">
+            <span class="text-gray-800">Total:</span>
+            <span id="summary-total" class="text-green-600">Rp0</span>
+          </div>
+        </div>
+
+        <div class="flex justify-end space-x-4">
+          <button
+            id="edit-pesanan"
+            class="bg-yellow-500 text-white font-medium py-2 px-6 rounded-lg hover:bg-yellow-600 transition duration-300"
+          >
+            <i class="fas fa-edit mr-2"></i>Edit Pesanan
+          </button>
+          <button
+            id="konfirmasi-pesanan"
+            class="bg-green-600 text-white font-medium py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300"
+          >
+            <i class="fas fa-check mr-2"></i>Konfirmasi
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="mb-8 md:mb-0">
+            <a href="index.html" class="flex items-center mb-4">
+              <i class="fas fa-truck-monster text-3xl text-blue-400 mr-2"></i>
+              <span class="text-2xl font-bold text-white"
+                >PT. Ariesta Pratama</span
+              >
+            </a>
+            <p class="text-gray-400 mb-4">
+              Solusi terbaik untuk kebutuhan alat berat proyek konstruksi Anda.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >
+                <i class="fab fa-linkedin-in text-xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Tautan Cepat</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="index.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Beranda</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Layanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="alat-berat.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Alat Berat</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pemesanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Pemesanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="tentang-kami.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a
+                  href="kontak.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Kontak</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Layanan</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Penyewaan Alat Berat</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Operator Profesional</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Perawatan & Perbaikan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Konsultasi Proyek</a
+                >
+              </li>
+              <li>
+                <a
+                  href="layanan.html"
+                  class="text-gray-400 hover:text-blue-400 transition duration-300"
+                  >Transportasi Alat</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
+              Berlangganan newsletter kami untuk mendapatkan informasi terbaru
+              dan penawaran spesial.
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Email Anda"
+                class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full"
+              />
+              <button
+                type="submit"
+                class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition duration-300"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-4 md:mb-0">
+            © 2025 PT. Ariesta Pratama. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >Kebijakan Privasi</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >Syarat & Ketentuan</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-blue-400 transition duration-300"
+              >FAQ</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a
+      href="#"
+      class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set minimum date to today
+        const today = new Date().toISOString().split("T")[0];
+        document.getElementById("tanggal-mulai").min = today;
+
+        let equipmentItems = [];
+
+        // File upload handlers
+        document
+          .getElementById("ktp-upload")
+          .addEventListener("change", function (e) {
+            const fileName = e.target.files[0]
+              ? e.target.files[0].name
+              : "Belum ada file dipilih";
+            document.getElementById("ktp-file-name").textContent = fileName;
+          });
+
+        document
+          .getElementById("surat-upload")
+          .addEventListener("change", function (e) {
+            const fileName = e.target.files[0]
+              ? e.target.files[0].name
+              : "Belum ada file dipilih";
+            document.getElementById("surat-file-name").textContent = fileName;
+          });
+
+        // Payment method toggle
+        document
+          .querySelectorAll('input[name="pembayaran"]')
+          .forEach((radio) => {
+            radio.addEventListener("change", function () {
+              if (this.value === "Transfer Bank") {
+                document
+                  .getElementById("bank-details")
+                  .classList.remove("hidden");
+              } else {
+                document.getElementById("bank-details").classList.add("hidden");
+              }
+            });
+          });
+
+        // Add equipment item
+        document
+          .getElementById("tambah-alat")
+          .addEventListener("click", function () {
+            const alatSelect = document.getElementById("alat");
+            const alat = alatSelect.value;
+            const harga =
+              alatSelect.options[alatSelect.selectedIndex].getAttribute(
+                "data-harga"
+              );
+            const jumlah = document.getElementById("jumlah").value;
+            const tanggalMulai = document.getElementById("tanggal-mulai").value;
+            const durasi = document.getElementById("durasi").value;
+            const catatan = document.getElementById("catatan").value;
+
+            if (!alat || !jumlah || !tanggalMulai || !durasi) {
+              alert(
+                "Mohon lengkapi semua field yang wajib diisi untuk alat berat."
+              );
+              return;
+            }
+
+            if (parseInt(durasi) < 8) {
+              alert("Minimal durasi sewa adalah 8 jam");
+              return;
+            }
+
+            const newItem = {
+              id: Date.now(),
+              alat,
+              harga: parseInt(harga),
+              jumlah: parseInt(jumlah),
+              tanggalMulai,
+              durasi: parseInt(durasi),
+              catatan,
+              total: parseInt(harga) * parseInt(jumlah) * parseInt(durasi),
+            };
+
+            equipmentItems.push(newItem);
+            renderEquipmentItems();
+            resetEquipmentForm();
+            updateTotalBiaya();
+
+            // Show "Lihat Ringkasan" button
+            document
+              .getElementById("lihat-ringkasan")
+              .classList.remove("hidden");
+          });
+
+        // Render equipment items
+        function renderEquipmentItems() {
+          const container = document.getElementById("equipment-items");
+          container.innerHTML = "";
+
+          if (equipmentItems.length === 0) {
+            container.innerHTML =
+              '<p class="text-gray-500">Belum ada alat berat yang ditambahkan</p>';
+            return;
+          }
+
+          equipmentItems.forEach((item) => {
+            const itemElement = document.createElement("div");
+            itemElement.className =
+              "border border-gray-200 rounded-lg p-4 mb-4";
+            itemElement.innerHTML = `
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-bold text-lg">${item.alat}</h4>
+                  <p class="text-gray-600">Harga: Rp${formatRupiah(
+                    item.harga
+                  )}/jam</p>
+                  <p class="text-gray-600">Jumlah: ${item.jumlah} unit</p>
+                  <p class="text-gray-600">Tanggal Mulai: ${formatDate(
+                    item.tanggalMulai
+                  )}</p>
+                  <p class="text-gray-600">Durasi: ${item.durasi} jam</p>
+                  <p class="text-gray-600 font-medium">Total: Rp${formatRupiah(
+                    item.total
+                  )}</p>
+                  ${
+                    item.catatan
+                      ? `<p class="text-gray-600">Catatan: ${item.catatan}</p>`
+                      : ""
+                  }
+                </div>
+                <button class="text-red-500 hover:text-red-700 delete-item" data-id="${
+                  item.id
+                }">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            `;
+            container.appendChild(itemElement);
+          });
+
+          // Add event listeners to delete buttons
+          document.querySelectorAll(".delete-item").forEach((button) => {
+            button.addEventListener("click", function () {
+              const id = parseInt(this.getAttribute("data-id"));
+              equipmentItems = equipmentItems.filter((item) => item.id !== id);
+              renderEquipmentItems();
+              updateTotalBiaya();
+
+              if (equipmentItems.length === 0) {
+                document
+                  .getElementById("lihat-ringkasan")
+                  .classList.add("hidden");
+              }
+            });
+          });
+        }
+
+        // Calculate and update total
+        function updateTotalBiaya() {
+          const totalContainer = document.getElementById("total-container");
+          const emptyTotal = document.getElementById("empty-total");
+
+          if (equipmentItems.length === 0) {
+            totalContainer.classList.add("hidden");
+            emptyTotal.classList.remove("hidden");
+            return;
+          }
+
+          const subtotal = equipmentItems.reduce(
+            (sum, item) => sum + item.total,
+            0
+          );
+
+          document.getElementById("subtotal").textContent = `Rp${formatRupiah(
+            subtotal
+          )}`;
+          document.getElementById(
+            "total-biaya"
+          ).textContent = `Rp${formatRupiah(subtotal)}`;
+
+          totalContainer.classList.remove("hidden");
+          emptyTotal.classList.add("hidden");
+        }
+
+        // Format Rupiah
+        function formatRupiah(angka) {
+          return angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        // Reset equipment form
+        function resetEquipmentForm() {
+          document.getElementById("alat").value = "";
+          document.getElementById("jumlah").value = "1";
+          document.getElementById("tanggal-mulai").value = "";
+          document.getElementById("durasi").value = "8";
+          document.getElementById("catatan").value = "";
+        }
+
+        // Format date
+        function formatDate(dateString) {
+          const options = { year: "numeric", month: "long", day: "numeric" };
+          return new Date(dateString).toLocaleDateString("id-ID", options);
+        }
+
+        // Show summary modal
+        document
+          .getElementById("lihat-ringkasan")
+          .addEventListener("click", function () {
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+            const telepon = document.getElementById("telepon").value;
+            const perusahaan = document.getElementById("perusahaan").value;
+            const alamat = document.getElementById("alamat").value;
+            const pembayaran = document.querySelector(
+              'input[name="pembayaran"]:checked'
+            ).value;
+            const ktpFile = document.getElementById("ktp-upload").files[0];
+
+            if (
+              !nama ||
+              !email ||
+              !telepon ||
+              !alamat ||
+              equipmentItems.length === 0 ||
+              !ktpFile
+            ) {
+              alert(
+                "Mohon lengkapi semua data pemesan, upload KTP/SIM, dan tambahkan minimal satu alat berat."
+              );
+              return;
+            }
+
+            // Validate email
+            if (!email.includes("@")) {
+              document.getElementById("email-error").classList.remove("hidden");
+              return;
+            } else {
+              document.getElementById("email-error").classList.add("hidden");
+            }
+
+            // Validate phone number
+            if (isNaN(telepon)) {
+              document.getElementById("phone-error").classList.remove("hidden");
+              return;
+            } else {
+              document.getElementById("phone-error").classList.add("hidden");
+            }
+
+            // Set summary values
+            document.getElementById("summary-nama").textContent = nama;
+            document.getElementById("summary-email").textContent = email;
+            document.getElementById("summary-telepon").textContent = telepon;
+            document.getElementById("summary-perusahaan").textContent =
+              perusahaan || "-";
+            document.getElementById("summary-alamat").textContent = alamat;
+            document.getElementById("summary-pembayaran").textContent =
+              pembayaran;
+
+            // Render equipment items in summary
+            const summaryContainer =
+              document.getElementById("summary-equipment");
+            summaryContainer.innerHTML = "";
+
+            const subtotal = equipmentItems.reduce(
+              (sum, item) => sum + item.total,
+              0
+            );
+
+            equipmentItems.forEach((item) => {
+              const itemElement = document.createElement("div");
+              itemElement.className = "border border-gray-200 rounded-lg p-4";
+              itemElement.innerHTML = `
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-bold">${item.alat}</h4>
+                  <p class="text-gray-600">Harga: Rp${formatRupiah(
+                    item.harga
+                  )}/jam</p>
+                  <p class="text-gray-600">Jumlah: ${item.jumlah} unit</p>
+                  <p class="text-gray-600">Tanggal Mulai: ${formatDate(
+                    item.tanggalMulai
+                  )}</p>
+                  <p class="text-gray-600">Durasi: ${item.durasi} jam</p>
+                  <p class="text-gray-600 font-medium">Total: Rp${formatRupiah(
+                    item.total
+                  )}</p>
+                  ${
+                    item.catatan
+                      ? `<p class="text-gray-600">Catatan: ${item.catatan}</p>`
+                      : ""
+                  }
+                </div>
+              </div>
+            `;
+              summaryContainer.appendChild(itemElement);
+            });
+
+            // Update summary totals
+            document.getElementById(
+              "summary-subtotal"
+            ).textContent = `Rp${formatRupiah(subtotal)}`;
+            document.getElementById(
+              "summary-total"
+            ).textContent = `Rp${formatRupiah(subtotal)}`;
+
+            // Show modal
+            document.getElementById("summary-modal").classList.remove("hidden");
+          });
+
+        // Close summary modal
+        document
+          .getElementById("close-summary")
+          .addEventListener("click", function () {
+            document.getElementById("summary-modal").classList.add("hidden");
+          });
+
+        // Edit order
+        document
+          .getElementById("edit-pesanan")
+          .addEventListener("click", function () {
+            document.getElementById("summary-modal").classList.add("hidden");
+          });
+
+        // Confirm order
+        document
+          .getElementById("konfirmasi-pesanan")
+          .addEventListener("click", function () {
+            // Get form data
+            const orderData = {
+              customer: {
+                nama: document.getElementById("nama").value,
+                email: document.getElementById("email").value,
+                telepon: document.getElementById("telepon").value,
+                perusahaan: document.getElementById("perusahaan").value || "-",
+                alamat: document.getElementById("alamat").value,
+                pembayaran: document.querySelector(
+                  'input[name="pembayaran"]:checked'
+                ).value,
+              },
+              equipment: equipmentItems,
+              total: equipmentItems.reduce((sum, item) => sum + item.total, 0),
+              orderDate: new Date().toISOString(),
+              status: "Menunggu Konfirmasi",
+            };
+
+            // Save to localStorage
+            saveOrderToHistory(orderData);
+
+            // Show success message
+            alert(
+              "Pemesanan berhasil dikirim! Kami akan menghubungi Anda segera."
+            );
+
+            // Reset form
+            document.getElementById("order-form").reset();
+            equipmentItems = [];
+            renderEquipmentItems();
+            updateTotalBiaya();
+            document.getElementById("lihat-ringkasan").classList.add("hidden");
+            document.getElementById("summary-modal").classList.add("hidden");
+
+            // Reset file inputs
+            document.getElementById("ktp-upload").value = "";
+            document.getElementById("surat-upload").value = "";
+            document.getElementById("ktp-file-name").textContent =
+              "Belum ada file dipilih";
+            document.getElementById("surat-file-name").textContent =
+              "Belum ada file dipilih";
+          });
+
+        // Save order to history
+        function saveOrderToHistory(orderData) {
+          let orders =
+            JSON.parse(localStorage.getItem("equipmentOrders")) || [];
+          orders.push(orderData);
+          localStorage.setItem("equipmentOrders", JSON.stringify(orders));
+        }
+
+        // Format date and time
+        function formatDateTime(dateTimeString) {
+          const options = {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          };
+          return new Date(dateTimeString).toLocaleDateString("id-ID", options);
+        }
+
+        // Form submission
+        document
+          .getElementById("order-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Validate form
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+            const telepon = document.getElementById("telepon").value;
+            const alamat = document.getElementById("alamat").value;
+            const ktpFile = document.getElementById("ktp-upload").files[0];
+
+            if (
+              !nama ||
+              !email ||
+              !telepon ||
+              !alamat ||
+              equipmentItems.length === 0 ||
+              !ktpFile
+            ) {
+              alert(
+                "Mohon lengkapi semua data pemesan, upload KTP/SIM, dan tambahkan minimal satu alat berat."
+              );
+              return;
+            }
+
+            // Validate email
+            if (!email.includes("@")) {
+              document.getElementById("email-error").classList.remove("hidden");
+              return;
+            }
+
+            // Validate phone number
+            if (isNaN(telepon)) {
+              document.getElementById("phone-error").classList.remove("hidden");
+              return;
+            }
+
+            // Show summary modal
+            document.getElementById("lihat-ringkasan").click();
+          });
+      });
+    </script>
+  </body>
+</html>
